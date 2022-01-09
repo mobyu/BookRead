@@ -1,3 +1,5 @@
+###  起步
+
 1. 集中化版本控制系统（Centralized Version Control Systems，简称 CVCS）
 
    1. 缺陷：单点故障
@@ -50,3 +52,57 @@
 
       使用git config <key> 来检查某一项配置
 
+8. 
+
+###  Git基础
+
+1.  获取Git仓库：
+
+   1. 将尚未进行版本控制的本地目录转化为Git仓库；
+
+      ```powershell
+      # git clone <url>
+      $ git clone https://github.com/libgit2/libgit2
+      $ git clone https://github.com/libgit2/libgit2 mylibgit #使用额外参数指定新的目录名
+      ```
+
+      Git支持多种传输协议，https://、 git:// 使用SSH协议
+
+   2. 从其他服务器**克隆**一个Git仓库。
+
+      ```powershell
+      $ cd /c/user/my_project  #进入到目标目录
+      $ git init #初始化Git仓库
+      $ git add *.c #已有文件的目录指定文件进行追踪。
+      $ git add LICENSE #
+      $ git commit -m 'initial project version'
+      ```
+
+   3. 查看当前文件状态
+
+      ```powershell
+      $ git status
+      On branch master
+      Your branch is up-to-date with 'origin/master'.
+      nothing to commit, working directory clean
+      $ git status -s # 缩短命令输出
+      ```
+
+   4. 忽略文件
+
+      有些无需纳入Git管理的文件，创建一个 .gitignore 文件，来忽略文件，支持正则表达
+
+      ```powershell
+      $ cat .gitignore
+      *.[oa]
+      *~
+      ```
+
+   5. 尚未暂存的文件更新了哪些部分
+
+      ```powershell
+      $ git diff  # 比较的是工作目录中当前文件和暂存区域快照之间的差异。 也就是修改之后还没有暂存起来的变化内容。
+      $ git diff --staged # 比对已暂存文件与最后一次提交的文件差异
+      ```
+
+      
